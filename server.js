@@ -4,6 +4,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//environment PORT
+const port = process.env.port || 4200;
 //This starts the web server
 var app = express();
 //to stop repeating same code in each page
@@ -64,6 +66,6 @@ app.get('/about',(req,res)=>{
 //bad page router
 
 //this locates to webserver and start listning to server local host 4200 port
-app.listen(4200,()=>{
-    console.log("Server is up at port 4200");
+app.listen(port,()=>{
+    console.log(`Server is up at ${port} `);
 });
