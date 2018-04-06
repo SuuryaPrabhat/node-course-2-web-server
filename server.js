@@ -54,7 +54,7 @@ app.get('/',(req,res)=>{
         pageTitle:'Home Page',
         message:'welcome to Home Page',
         
-    });
+    })
 });
 
 //about page router
@@ -62,7 +62,7 @@ app.get('/about',(req,res)=>{
     res.render('about.hbs',{
         pageTitle:'About Page',
         
-    });
+    })
 });
 
 app.get('/projects',(req,res)=>{
