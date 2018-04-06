@@ -73,5 +73,5 @@ app.get('/projects',(req,res)=>{
 
 //this locates to webserver and start listning to server local host 4200 port
 app.listen(port,()=>{
-    console.log(`Server is up at ${port} `);
+    console.log(`Server is up at ${port}.`)
 });
