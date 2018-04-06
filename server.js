@@ -15,6 +15,7 @@ hbs.registerPartials(__dirname+'/views/Partials');
 //this uses static directory where html file is located
 
 //middlewear it keep track how server running
+app.use(express.static(__dirname+'/public'));
 app.use((req,res,next)=>{
     var now = new Date().toString();
 
@@ -28,14 +29,14 @@ app.use((req,res,next)=>{
     });
     next();
 });
-//no next to stop other function only post mainantance in every site
-app.use((req,res,next)=>{
-    res.render('maintainance.hbs',{
-        pageTitle:'The Sie is under Maitainance',
-        message:'It is currently updating will be back soon'
-    });
-})
-app.use(express.static(__dirname+'/public'));
+// //no next to stop other function only post mainantance in every site
+// app.use((req,res,next)=>{
+//     res.render('maintainance.hbs',{
+//         pageTitle:'The Sie is under Maitainance',
+//         message:'It is currently updating will be back soon'
+//     });
+// })
+
 //It helps like saving code in DRY
 hbs.registerHelper('getCurrentYear',()=>{
     return new Date().getFullYear();
@@ -63,7 +64,12 @@ app.get('/about',(req,res)=>{
         
     });
 });
-//bad page router
+
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle:'Projects'
+    })
+});
 
 //this locates to webserver and start listning to server local host 4200 port
 app.listen(port,()=>{
